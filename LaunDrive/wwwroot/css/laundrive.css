@@ -1,0 +1,662 @@
+﻿
+/* =========================================
+   LAUNDRIVE - SOFT LAVENDER THEME
+========================================= */
+
+/* 1. GLOBAL COLORS */
+
+:root {
+    --primary: #6D28D9;
+    --primary-dark: #5B21B6;
+    --lavender: #A78BFA;
+    --lavender-light: #EDE9FE;
+    --background: #FAF9FF;
+    --white: #FFFFFF;
+    --text-dark: #1F2937;
+    --text-muted: #64748B;
+    --border: #DDD6FE;
+    --brand-laun: #4C1D95;
+    --brand-drive: #A78BFA;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: var(--background);
+    color: var(--text-dark);
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.site-main {
+    flex: 1;
+}
+
+/* 2. BRAND COLORS */
+
+.brand-laun {
+    color: var(--brand-laun);
+}
+
+.brand-drive {
+    color: var(--brand-drive);
+}
+
+/* =========================================
+   3. CUSTOMER NAVIGATION
+========================================= */
+
+.site-header {
+    width: 100%;
+    background: var(--white);
+    border-bottom: 1px solid var(--lavender-light);
+    box-shadow: 0 2px 10px rgba(109, 40, 217, 0.04);
+}
+
+.navbar-container {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 14px 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.site-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+}
+
+.logo-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 55px;
+    height: 55px;
+    background: var(--lavender-light);
+    border-radius: 14px;
+    font-size: 28px;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-name {
+    font-size: 27px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.logo-tagline {
+    color: var(--text-muted);
+    font-size: 12px;
+}
+
+.site-nav {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.nav-link {
+    color: #4C1D95;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 11px 20px;
+    border-radius: 14px;
+    transition: 0.2s ease;
+}
+
+    .nav-link:hover {
+        color: var(--primary);
+        background: #F5F3FF;
+    }
+
+    .nav-link.active {
+        color: var(--primary-dark);
+        background: var(--lavender-light);
+    }
+
+/* =========================================
+   4. HOMEPAGE GLOBAL
+========================================= */
+
+.home-page {
+    width: 100%;
+}
+
+    .home-page h1,
+    .home-page h2,
+    .home-page h3 {
+        font-weight: 700;
+    }
+
+    .home-page p {
+        line-height: 1.6;
+    }
+
+    /* =========================================
+   5. HERO SECTION
+========================================= */
+
+    .home-page .hero-section {
+        max-width: 1600px;
+        margin: 0 auto;
+        padding: 55px 6%;
+        min-height: 380px;
+        display: grid;
+        grid-template-columns: 1.1fr 1fr;
+        align-items: center;
+        gap: 30px;
+        background: linear-gradient( 120deg, #FAF9FF 0%, #F1EAFE 55%, #E4D6FB 100% );
+        border-radius: 0 0 26px 26px;
+        overflow: hidden;
+    }
+
+    .home-page .hero-content {
+        max-width: 680px;
+    }
+
+        .home-page .hero-content h1 {
+            font-size: clamp(36px, 4vw, 56px);
+            line-height: 1.12;
+            color: #4C1D95;
+            margin: 0 0 22px;
+        }
+
+            .home-page .hero-content h1::after {
+                content: "";
+                display: block;
+                width: 55%;
+                height: 5px;
+                margin-top: 12px;
+                border-radius: 20px;
+                background: linear-gradient( 90deg, #C4B5FD, #A78BFA );
+            }
+
+        .home-page .hero-content p {
+            max-width: 540px;
+            color: #59617E;
+            font-size: 17px;
+            margin: 0 0 26px;
+        }
+
+    .home-page .hero-buttons {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    /* 6. HOMEPAGE BUTTONS */
+
+    .home-page .btn-primary,
+    .home-page .btn-secondary {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 50px;
+        padding: 13px 28px;
+        border-radius: 14px;
+        font-size: 15px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: 0.2s ease;
+    }
+
+    .home-page .btn-primary {
+        background: var(--primary);
+        color: var(--white);
+        border: 2px solid var(--primary);
+    }
+
+        .home-page .btn-primary:hover {
+            background: var(--primary-dark);
+            color: var(--white);
+            border-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+    .home-page .btn-secondary {
+        background: var(--white);
+        color: var(--primary);
+        border: 2px solid var(--primary);
+    }
+
+        .home-page .btn-secondary:hover {
+            background: var(--lavender-light);
+            color: var(--primary-dark);
+        }
+
+    /* 7. HERO IMAGE PLACEHOLDER */
+
+    .home-page .hero-visual {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 270px;
+        background: radial-gradient( circle, #DDD6FE 0%, rgba(237, 233, 254, 0.5) 60%, transparent 75% );
+    }
+
+    .home-page .hero-laundry-icon {
+        font-size: clamp(125px, 15vw, 210px);
+        text-align: center;
+    }
+
+    /* =========================================
+   8. LAUNDRY SERVICES
+========================================= */
+
+    .home-page .services-section {
+        max-width: 1600px;
+        margin: 0 auto;
+        padding: 48px 6% 40px;
+    }
+
+    .home-page .section-heading {
+        text-align: center;
+        margin-bottom: 28px;
+    }
+
+        .home-page .section-heading h2 {
+            color: #4C1D95;
+            font-size: 34px;
+            margin: 0 0 8px;
+        }
+
+        .home-page .section-heading p {
+            color: var(--text-muted);
+            font-size: 16px;
+            margin: 0;
+        }
+
+    .home-page .services-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+
+    /* SERVICE CARDS */
+
+    .home-page .service-card {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        position: relative;
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 25px;
+        min-height: 150px;
+        box-shadow: 0 5px 20px rgba(109, 40, 217, 0.04);
+        transition: transform 0.2s ease;
+    }
+
+        .home-page .service-card:hover {
+            transform: translateY(-4px);
+        }
+
+    .home-page .service-icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-shrink: 0;
+        width: 85px;
+        height: 85px;
+        background: #F0E4FF;
+        border-radius: 22px;
+        font-size: 38px;
+    }
+
+    .home-page .service-card h3 {
+        color: #4C1D95;
+        font-size: 23px;
+        margin: 0 0 8px;
+    }
+
+    .home-page .service-card p {
+        color: var(--text-muted);
+        font-size: 14px;
+        margin: 0;
+    }
+
+    /* =========================================
+   9. WHY CHOOSE LAUNDRIVE
+========================================= */
+
+    .home-page .benefits-section {
+        max-width: 1600px;
+        margin: 0 auto;
+        padding: 0 6% 40px;
+    }
+
+    .home-page .benefits-container {
+        display: grid;
+        grid-template-columns: 1.1fr repeat(3, 1fr);
+        align-items: center;
+        gap: 20px;
+        background: linear-gradient( 120deg, #F0E7FF, #F5EEFF );
+        border-radius: 24px;
+        padding: 26px 35px;
+    }
+
+    .home-page .benefits-heading {
+        padding-right: 20px;
+        border-right: 2px solid #C4B5FD;
+    }
+
+        .home-page .benefits-heading h2 {
+            color: #4C1D95;
+            font-size: 25px;
+            line-height: 1.2;
+            margin: 0;
+        }
+
+    /* BENEFIT ITEMS */
+
+    .home-page .benefit-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .home-page .benefit-icon {
+        flex-shrink: 0;
+        font-size: 32px;
+        color: var(--primary);
+    }
+
+    .home-page .benefit-content h3 {
+        color: #4C1D95;
+        font-size: 16px;
+        margin: 0 0 5px;
+    }
+
+    .home-page .benefit-content p {
+        color: #59617E;
+        font-size: 13px;
+        margin: 0;
+    }
+
+/* =========================================
+   10. CUSTOMER FOOTER
+========================================= */
+
+.site-footer {
+    width: 100%;
+    background: #EEE5FA;
+    border-top: 1px solid var(--lavender-light);
+}
+
+.footer-container {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 18px 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+}
+
+.footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    background: var(--lavender-light);
+    border-radius: 12px;
+    font-size: 24px;
+}
+
+.footer-brand h3 {
+    font-size: 21px;
+    margin: 0;
+}
+
+.footer-brand p {
+    color: var(--text-muted);
+    font-size: 12px;
+    margin: 3px 0 0;
+}
+
+.footer-copyright {
+    color: #59617E;
+    font-size: 13px;
+    text-align: center;
+}
+
+.admin-shortcut {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 11px 22px;
+    background: var(--white);
+    color: var(--primary);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.2s ease;
+}
+
+    .admin-shortcut:hover {
+        background: var(--lavender-light);
+        color: var(--primary-dark);
+    }
+
+    /* =========================================
+   11. ACCESSIBILITY
+========================================= */
+
+    .home-page a:focus-visible,
+    .site-logo:focus-visible,
+    .nav-link:focus-visible,
+    .admin-shortcut:focus-visible {
+        outline: 3px solid var(--primary);
+        outline-offset: 3px;
+    }
+
+/* =========================================
+   12. TABLET RESPONSIVE DESIGN
+========================================= */
+
+@media (max-width: 1100px) {
+
+    .home-page .benefits-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .home-page .benefits-heading {
+        border-right: none;
+        padding-right: 0;
+    }
+
+    .home-page .service-card {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (max-width: 900px) {
+
+    .home-page .hero-section {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 45px 6%;
+    }
+
+    .home-page .hero-content {
+        max-width: 100%;
+    }
+
+        .home-page .hero-content p {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .home-page .hero-content h1::after {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+    .home-page .hero-buttons {
+        justify-content: center;
+    }
+
+    .home-page .hero-visual {
+        min-height: 200px;
+    }
+
+    .home-page .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* =========================================
+   13. MOBILE RESPONSIVE DESIGN
+========================================= */
+
+@media (max-width: 768px) {
+
+    .navbar-container {
+        flex-direction: column;
+        padding: 15px 5%;
+        gap: 15px;
+    }
+
+    .site-nav {
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 5px;
+    }
+
+    .nav-link {
+        padding: 10px 12px;
+        font-size: 13px;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+        padding: 24px 5%;
+        gap: 18px;
+    }
+
+    .footer-brand {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .home-page .hero-section {
+        padding: 40px 20px;
+    }
+
+    .home-page .hero-content h1 {
+        font-size: 34px;
+    }
+
+    .home-page .hero-content p {
+        font-size: 15px;
+    }
+
+    .home-page .hero-buttons {
+        flex-direction: column;
+    }
+
+    .home-page .btn-primary,
+    .home-page .btn-secondary {
+        width: 100%;
+    }
+
+    .home-page .services-section {
+        padding: 35px 20px;
+    }
+
+    .home-page .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .home-page .service-card {
+        flex-direction: row;
+        text-align: left;
+        padding: 20px;
+    }
+
+    .home-page .service-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 30px;
+    }
+
+    .home-page .section-heading h2 {
+        font-size: 28px;
+    }
+
+    .home-page .benefits-section {
+        padding: 0 20px 30px;
+    }
+
+    .home-page .benefits-container {
+        grid-template-columns: 1fr;
+        padding: 25px;
+    }
+
+    .home-page .benefits-heading h2 {
+        font-size: 25px;
+    }
+
+    .home-page .benefit-item {
+        padding: 5px 0;
+    }
+}
+
+/* =========================================
+   LAUNDRIVE LOGO IMAGE
+========================================= */
+
+.brand-logo {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.logo-icon,
+.footer-logo {
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+/* =========================================
+   LAUNDRIVE HERO ILLUSTRATION
+========================================= */
+
+.home-page .hero-illustration {
+    display: block;
+    width: 100%;
+    max-width: 620px;
+    height: auto;
+    object-fit: contain;
+}

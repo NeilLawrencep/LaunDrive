@@ -1,0 +1,130 @@
+﻿@{
+    var currentPage = ViewContext.RouteData.Values["page"]?.ToString() ?? "";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0" />
+
+    <title>@ViewData["Title"] - LaunDrive</title>
+
+    <!-- LaunDrive CSS -->
+    <link rel="stylesheet"
+          href="~/css/laundrive.css"
+          asp-append-version="true" />
+</head>
+
+<body>
+
+    <!-- CUSTOMER NAVIGATION BAR -->
+    <header class="site-header">
+
+        <div class="navbar-container">
+
+            <!-- LAUNDRIVE LOGO -->
+            <a asp-page="/Index" class="site-logo">
+
+                <span class="logo-icon">
+                    <img src="~/images/laundrive-logo.svg"
+                         alt="LaunDrive Logo"
+                         class="brand-logo" />
+                </span>
+
+                <span class="logo-text">
+                    <span class="logo-name">
+                        <span class="brand-laun">Laun</span><span class="brand-drive">Drive</span>
+                    </span>
+                    <span class="logo-tagline">
+                        Laundry Pickup &amp; Delivery
+                    </span>
+                </span>
+
+            </a>
+
+            <!-- NAVIGATION LINKS -->
+            <nav class="site-nav" aria-label="Customer navigation">
+
+                <a asp-page="/Index"
+                   class="nav-link @(currentPage == "/Index" ? "active" : "")">
+                    Home
+                </a>
+
+                <a asp-page="/Customer/Create"
+                   class="nav-link @(currentPage == "/Customer/Create" ? "active" : "")">
+                    Place Order
+                </a>
+
+                <a asp-page="/Customer/Track"
+                   class="nav-link @(currentPage == "/Customer/Track" ? "active" : "")">
+                    Track Order
+                </a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- MAIN PAGE CONTENT -->
+    <main class="site-main">
+
+        @RenderBody()
+
+    </main>
+
+
+    <!-- CUSTOMER FOOTER -->
+    <footer class="site-footer">
+
+        <div class="footer-container">
+
+            <!-- FOOTER BRAND -->
+            <div class="footer-brand">
+
+                <span class="footer-logo">
+                    <img src="~/images/laundrive-logo.svg"
+                         alt="LaunDrive Logo"
+                         class="brand-logo" />
+                </span>
+
+                <div>
+                    <h3>
+                        <span class="brand-laun">Laun</span><span class="brand-drive">Drive</span>
+                    </h3>
+                    <p>Laundry Pickup &amp; Delivery</p>
+                </div>
+
+            </div>
+
+            <!-- COPYRIGHT -->
+            <div class="footer-copyright">
+                &copy; @DateTime.Now.Year LaunDrive.
+                All rights reserved.
+            </div>
+
+            <!-- ADMIN SHORTCUT -->
+            <div class="footer-admin">
+
+                <a asp-page="/Admin/Index"
+                   class="admin-shortcut">
+                    ⚙ Admin
+                </a>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- OPTIONAL PAGE SCRIPTS -->
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
+
+

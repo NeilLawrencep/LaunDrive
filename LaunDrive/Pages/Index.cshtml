@@ -1,0 +1,243 @@
+﻿@page
+@model IndexModel
+
+@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="home-page">
+
+    <!-- HERO SECTION -->
+    <section class="hero-section">
+
+        <div class="hero-content">
+
+            <h1>
+                Laundry Made<br />
+                Simple and Convenient
+            </h1>
+
+            <p>
+                Schedule your laundry, choose the services
+                you need, and we'll pick up, clean,
+                and deliver it to your door.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a asp-page="/Customer/Create"
+                   class="btn-primary">
+                    Place Order
+                </a>
+
+                <a asp-page="/Customer/Track"
+                   class="btn-secondary">
+                    Track Order
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- HERO ILLUSTRATION -->
+        <div class="hero-visual">
+            <img src="~/images/laundrive-hero.svg"
+                 alt="Washing machine with clean laundry and folded clothes"
+                 class="hero-illustration" />
+        </div>
+
+    </section>
+
+
+    <!-- OUR LAUNDRY SERVICES -->
+    <section class="services-section">
+
+        <div class="section-heading">
+
+            <h2>Our Laundry Services</h2>
+
+            <p>
+                Choose one or more services
+                for your laundry order.
+            </p>
+
+        </div>
+
+        <div class="services-grid">
+
+            <!-- WASH -->
+            <div class="service-card">
+
+                <div class="service-icon">
+
+                    <svg width="42" height="42" viewBox="0 0 48 48"
+                         fill="none" stroke="#6D28D9" stroke-width="2.5"
+                         stroke-linecap="round" stroke-linejoin="round"
+                         aria-hidden="true">
+                        <rect x="7" y="5" width="34" height="38" rx="5" />
+                        <path d="M7 16H41" />
+                        <circle cx="14" cy="11" r="1" />
+                        <circle cx="21" cy="11" r="1" />
+                        <circle cx="24" cy="29" r="11" />
+                        <path d="M15 29Q20 24 24 29T33 29" />
+                    </svg>
+
+                </div>
+
+                <div class="service-info">
+
+                    <h3>Wash</h3>
+
+                    <p>
+                        Washing and drying your clothes.
+                        Drying is automatically included.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- IRON -->
+            <div class="service-card">
+
+                <div class="service-icon">
+
+                    <svg width="42" height="42" viewBox="0 0 48 48"
+                         fill="none" stroke="#6D28D9" stroke-width="2.5"
+                         stroke-linecap="round" stroke-linejoin="round"
+                         aria-hidden="true">
+                        <path d="M8 34L16 18H32C37 18 40 22 40 27V34Z" />
+                        <path d="M8 34L5 39H43V34Z" />
+                        <path d="M17 18V13C17 10 19 8 22 8H31" />
+                        <path d="M31 8V18" />
+                        <path d="M16 29H31" />
+                    </svg>
+
+                </div>
+
+                <div class="service-info">
+
+                    <h3>Iron</h3>
+
+                    <p>
+                        Removing wrinkles from clothes
+                        to keep them looking neat.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- FOLD -->
+            <div class="service-card">
+
+                <div class="service-icon">
+
+                    <svg width="42" height="42" viewBox="0 0 48 48"
+                         fill="none" stroke="#6D28D9" stroke-width="2.5"
+                         stroke-linecap="round" stroke-linejoin="round"
+                         aria-hidden="true">
+                        <rect x="7" y="8" width="34" height="10" rx="4" />
+                        <rect x="7" y="19" width="34" height="10" rx="4" />
+                        <rect x="7" y="30" width="34" height="10" rx="4" />
+                        <path d="M15 8V18M33 19V29M15 30V40" />
+                    </svg>
+
+                </div>
+
+                <div class="service-info">
+
+                    <h3>Fold</h3>
+
+                    <p>
+                        Folding clothes neatly
+                        and keeping them organized.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- WHY CHOOSE LAUNDRIVE -->
+    <section class="benefits-section">
+
+        <div class="benefits-container">
+
+            <div class="benefits-heading">
+
+                <h2>
+                    Why Choose<br />
+                    LaunDrive?
+                </h2>
+
+            </div>
+
+
+            <!-- PICKUP AND DELIVERY -->
+            <div class="benefit-item">
+
+                <div class="benefit-icon">
+                    🚚
+                </div>
+
+                <div class="benefit-content">
+
+                    <h3>Pickup &amp; Delivery</h3>
+
+                    <p>We come to you.</p>
+
+                </div>
+
+            </div>
+
+
+            <!-- TIME SAVING -->
+            <div class="benefit-item">
+
+                <div class="benefit-icon">
+                    ⏱️
+                </div>
+
+                <div class="benefit-content">
+
+                    <h3>Time-Saving</h3>
+
+                    <p>More time for what matters.</p>
+
+                </div>
+
+            </div>
+
+
+            <!-- CLEAN AND NEAT -->
+            <div class="benefit-item">
+
+                <div class="benefit-icon">
+                    ✨
+                </div>
+
+                <div class="benefit-content">
+
+                    <h3>Clean &amp; Neat</h3>
+
+                    <p>
+                        Clean and properly
+                        handled clothes.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
