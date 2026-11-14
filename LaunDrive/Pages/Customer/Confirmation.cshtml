@@ -1,4 +1,249 @@
 ﻿@page
 @model LaunDrive.Pages.Customer.ConfirmationModel
+@using LaunDrive.Services
+
 @{
+    ViewData["Title"] = "Order Confirmation";
+
+    var order = Model.Order!;
+
+    decimal washTotal = order.Wash
+        ? LaundryPricingService.WashPrice * order.NumberOfPieces
+        : 0m;
+
+    decimal ironTotal = order.Iron
+        ? LaundryPricingService.IronPrice * order.NumberOfPieces
+        : 0m;
+
+    decimal foldTotal = order.Fold
+        ? LaundryPricingService.FoldPrice * order.NumberOfPieces
+        : 0m;
 }
+
+<div class="confirmation-page">
+
+    <!-- SUCCESS MESSAGE -->
+    <section class="confirmation-hero">
+
+        <div class="confirmation-success-icon">
+            ✓
+        </div>
+
+        <h1>Order Placed Successfully!</h1>
+
+        <p>
+            Thank you for choosing LaunDrive!
+            Your laundry order has been received.
+        </p>
+
+        <div class="confirmation-tracking">
+
+            <span>Your Tracking Number</span>
+
+            <h2>@order.TrackingNumber</h2>
+
+            <p>
+                Keep this number to track your laundry.
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- ORDER INFORMATION -->
+    <div class="confirmation-grid">
+
+        <!-- LEFT SIDE -->
+        <div class="confirmation-details">
+
+            <!-- CUSTOMER INFORMATION -->
+            <section class="confirmation-card">
+
+                <h2>Customer Information</h2>
+
+                <div class="confirmation-row">
+                    <span>Full Name</span>
+                    <strong>@order.CustomerName</strong>
+                </div>
+
+                <div class="confirmation-row">
+                    <span>Contact Number</span>
+                    <strong>@order.ContactNumber</strong>
+                </div>
+
+            </section>
+
+            <!-- LAUNDRY INFORMATION -->
+            <section class="confirmation-card">
+
+                <h2>Laundry Information</h2>
+
+                <div class="confirmation-row">
+                    <span>Selected Services</span>
+
+                    <strong>
+                        @if (order.Wash)
+                        {
+                            <span>Wash </span>
+                        }
+
+                        @if (order.Iron)
+                        {
+                            <span>Iron </span>
+                        }
+
+                        @if (order.Fold)
+                        {
+                            <span>Fold</span>
+                        }
+                    </strong>
+                </div>
+
+                <div class="confirmation-row">
+                    <span>Number of Pieces</span>
+                    <strong>@order.NumberOfPieces</strong>
+                </div>
+
+                @if (!string.IsNullOrWhiteSpace(order.SpecialInstructions))
+                {
+                    <div class="confirmation-row">
+                        <span>Special Instructions</span>
+                        <strong>@order.SpecialInstructions</strong>
+                    </div>
+                }
+
+            </section>
+
+            <!-- PICKUP AND DELIVERY -->
+            <section class="confirmation-card">
+
+                <h2>Pickup and Delivery Details</h2>
+
+                <div class="confirmation-row">
+                    <span>Pickup Address</span>
+                    <strong>@order.PickupAddress</strong>
+                </div>
+
+                <div class="confirmation-row">
+                    <span>Delivery Address</span>
+                    <strong>@order.DeliveryAddress</strong>
+                </div>
+
+                <div class="confirmation-row">
+                    <span>Pickup Schedule</span>
+                    <strong>
+                        @order.PickupSchedule.ToString("MMM dd, yyyy - h:mm tt")
+                    </strong>
+                </div>
+
+                <div class="confirmation-row">
+                    <span>Delivery Schedule</span>
+                    <strong>
+                        @order.DeliverySchedule.ToString("MMM dd, yyyy - h:mm tt")
+                    </strong>
+                </div>
+
+            </section>
+
+        </div>
+
+        <!-- RIGHT SIDE -->
+        <div class="confirmation-summary">
+
+            <!-- PRICE BREAKDOWN -->
+            <section class="confirmation-card">
+
+                <h2>Price Breakdown</h2>
+
+                @if (order.Wash)
+                {
+                    <div class="confirmation-row">
+                        <span>
+                            Wash (@order.NumberOfPieces ×
+                            ₱@LaundryPricingService.WashPrice)
+                        </span>
+
+                        <strong>₱@(washTotal.ToString("N2"))</strong>
+                    </div>
+                }
+
+                @if (order.Iron)
+                {
+                    <div class="confirmation-row">
+                        <span>
+                            Iron (@order.NumberOfPieces ×
+                            ₱@LaundryPricingService.IronPrice)
+                        </span>
+
+                        <strong>₱@(ironTotal.ToString("N2"))</strong>
+                    </div>
+                }
+
+                @if (order.Fold)
+                {
+                    <div class="confirmation-row">
+                        <span>
+                            Fold (@order.NumberOfPieces ×
+                            ₱@LaundryPricingService.FoldPrice)
+                        </span>
+
+                        <strong>₱@(foldTotal.ToString("N2"))</strong>
+                    </div>
+                }
+
+                <div class="confirmation-row">
+                    <span>Pickup and Delivery</span>
+                    <strong>
+                        ₱@(LaundryPricingService.DeliveryFee.ToString("N2"))
+                    </strong>
+                </div>
+
+                <div class="confirmation-total">
+                    <span>Total Payment</span>
+                    <strong>
+                        ₱@(order.TotalPrice.ToString("N2"))
+                    </strong>
+                </div>
+
+            </section>
+
+            <!-- PAYMENT DETAILS -->
+            <section class="confirmation-card">
+
+                <h2>Payment Information</h2>
+
+                <div class="confirmation-row">
+                    <span>Payment Method</span>
+                    <strong>@order.PaymentMethod</strong>
+                </div>
+
+                <div class="confirmation-row">
+                    <span>Payment Status</span>
+                    <strong>@order.PaymentStatus</strong>
+                </div>
+
+                <div class="confirmation-row">
+                    <span>Order Status</span>
+                    <strong>@order.OrderStatus</strong>
+                </div>
+
+            </section>
+
+        </div>
+
+    </div>
+
+    <!-- ACTION BUTTONS -->
+    <div class="confirmation-actions">
+
+        <a asp-page="/Index" class="btn-secondary">
+            Back to Home
+        </a>
+
+        <a asp-page="/Customer/Track" class="btn-primary">
+            Track Your Order
+        </a>
+
+    </div>
+
+</div>

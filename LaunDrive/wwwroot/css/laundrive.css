@@ -660,3 +660,1062 @@ body {
     height: auto;
     object-fit: contain;
 }
+
+/* =========================================
+   CUSTOMER PLACE ORDER PAGE
+   ========================================= */
+
+.place-order-page {
+    width: min(1100px, calc(100% - 40px));
+    margin: 0 auto;
+    padding: 40px 0 60px;
+    color: #1F2937;
+}
+
+    /* PAGE HEADING */
+
+    .place-order-page .order-heading {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+        .place-order-page .order-heading h1 {
+            color: #4C1D95;
+            font-size: 32px;
+            font-weight: 700;
+            margin: 0 0 10px;
+        }
+
+        .place-order-page .order-heading p {
+            color: #64748B;
+            font-size: 15px;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+    /* MAIN FORM */
+
+    .place-order-page .order-form {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    /* WHITE SECTION CARDS */
+
+    .place-order-page .order-section {
+        background: #FFFFFF;
+        border: 1px solid #DDD6FE;
+        border-radius: 16px;
+        padding: 25px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+        .place-order-page .order-section h2 {
+            color: #5B21B6;
+            font-size: 19px;
+            font-weight: 700;
+            margin: 0;
+        }
+
+    .place-order-page .section-description {
+        color: #64748B;
+        font-size: 14px;
+        margin: -6px 0 0;
+    }
+
+    /* TWO-COLUMN FIELDS */
+
+    .place-order-page .order-two-columns {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+    }
+
+    /* FORM LABELS AND INPUTS */
+
+    .place-order-page .form-field {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        min-width: 0;
+    }
+
+        .place-order-page .form-field label {
+            color: #374151;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .place-order-page .form-field input:not([type="hidden"]),
+        .place-order-page .form-field textarea {
+            width: 100%;
+            min-width: 0;
+            box-sizing: border-box;
+            padding: 12px 14px;
+            font-family: inherit;
+            font-size: 14px;
+            color: #1F2937;
+            background: #FFFFFF;
+            border: 1px solid #C4B5FD;
+            border-radius: 8px;
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .place-order-page .form-field textarea {
+            resize: vertical;
+            min-height: 85px;
+        }
+
+            .place-order-page .form-field input:focus,
+            .place-order-page .form-field textarea:focus {
+                border-color: #6D28D9;
+                box-shadow: 0 0 0 3px #EDE9FE;
+            }
+
+            .place-order-page .form-field input::placeholder,
+            .place-order-page .form-field textarea::placeholder {
+                color: #94A3B8;
+            }
+
+    /* LAUNDRY SERVICE OPTIONS */
+
+    .place-order-page .laundry-service-options {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .place-order-page .laundry-option {
+        position: relative;
+    }
+
+    /* Hide checkbox visually, but keep it accessible */
+
+    .place-order-page .laundry-option-input {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        opacity: 0;
+    }
+
+    /* Service card */
+
+    .place-order-page .laundry-option-card {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 15px;
+        background: #FFFFFF;
+        border: 1px solid #DDD6FE;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background 0.2s, border-color 0.2s;
+    }
+
+        .place-order-page .laundry-option-card:hover {
+            background: #FAF7FF;
+            border-color: #A78BFA;
+        }
+
+    /* Service icons */
+
+    .place-order-page .laundry-option-icon {
+        width: 40px;
+        height: 40px;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #F3E8FF;
+        border-radius: 9px;
+        color: #6D28D9;
+        font-size: 23px;
+    }
+
+    /* Service name and description */
+
+    .place-order-page .laundry-option-text {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+        .place-order-page .laundry-option-text strong {
+            font-size: 15px;
+            color: #4C1D95;
+        }
+
+        .place-order-page .laundry-option-text small {
+            font-size: 12px;
+            color: #64748B;
+        }
+
+    /* Selection indicator */
+
+    .place-order-page .laundry-option-circle {
+        margin-left: auto;
+        width: 21px;
+        height: 21px;
+        border: 2px solid #CBD5E1;
+        border-radius: 50%;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* SELECTED SERVICE */
+
+    .place-order-page .laundry-option-input:checked + .laundry-option-card {
+        background: #F5F3FF;
+        border-color: #8B5CF6;
+    }
+
+        .place-order-page .laundry-option-input:checked + .laundry-option-card .laundry-option-circle {
+            background: #6D28D9;
+            border-color: #6D28D9;
+        }
+
+            .place-order-page .laundry-option-input:checked + .laundry-option-card .laundry-option-circle::after {
+                content: "✓";
+                color: #FFFFFF;
+                font-size: 13px;
+                font-weight: bold;
+            }
+
+    .place-order-page .laundry-option-input:focus-visible + .laundry-option-card {
+        outline: 3px solid #A78BFA;
+        outline-offset: 2px;
+    }
+
+    /* HINT BELOW LAUNDRY SERVICES */
+
+    .place-order-page .order-hint {
+        color: #7C3AED;
+        font-size: 13px;
+        margin: 0;
+    }
+
+    /* VALIDATION MESSAGES */
+
+    .place-order-page .validation-summary {
+        color: #B91C1C;
+        font-size: 14px;
+    }
+
+        .place-order-page .validation-summary-valid,
+        .place-order-page .validation-summary:empty {
+            display: none;
+        }
+
+    .place-order-page .field-validation {
+        color: #DC2626;
+        font-size: 12px;
+    }
+
+    .place-order-page .input-validation-error {
+        border-color: #DC2626 !important;
+    }
+
+    /* ACTION BUTTONS */
+
+    .place-order-page .form-actions {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 15px;
+        margin-top: 5px;
+    }
+
+        .place-order-page .form-actions .btn-primary,
+        .place-order-page .form-actions .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 45px;
+            padding: 12px 24px;
+            border-radius: 9px;
+            font-family: inherit;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .place-order-page .form-actions .btn-primary {
+            background: #6D28D9;
+            color: #FFFFFF;
+            border: 1px solid #6D28D9;
+        }
+
+            .place-order-page .form-actions .btn-primary:hover {
+                background: #5B21B6;
+            }
+
+        .place-order-page .form-actions .btn-secondary {
+            background: #FFFFFF;
+            color: #6D28D9;
+            border: 1px solid #6D28D9;
+        }
+
+            .place-order-page .form-actions .btn-secondary:hover {
+                background: #F5F3FF;
+            }
+
+/* =========================================
+   MOBILE RESPONSIVENESS
+   ========================================= */
+
+@media (max-width: 600px) {
+
+    .place-order-page {
+        width: calc(100% - 30px);
+        padding: 28px 0 40px;
+    }
+
+        .place-order-page .order-heading h1 {
+            font-size: 25px;
+        }
+
+        .place-order-page .order-heading p {
+            font-size: 14px;
+        }
+
+        .place-order-page .order-section {
+            padding: 18px;
+            gap: 14px;
+        }
+
+            .place-order-page .order-section h2 {
+                font-size: 17px;
+            }
+
+        .place-order-page .order-two-columns {
+            grid-template-columns: 1fr;
+            gap: 14px;
+        }
+
+        .place-order-page .laundry-option-card {
+            padding: 12px;
+        }
+
+        .place-order-page .form-actions {
+            flex-direction: column;
+        }
+
+            .place-order-page .form-actions .btn-primary,
+            .place-order-page .form-actions .btn-secondary {
+                width: 100%;
+            }
+}
+
+/* =========================================
+   CUSTOMER ORDER CONFIRMATION PAGE
+   ========================================= */
+
+.confirmation-page {
+    width: min(1100px, calc(100% - 40px));
+    margin: 0 auto;
+    padding: 40px 0 60px;
+    color: #1F2937;
+}
+
+/* SUCCESS SECTION */
+
+.confirmation-hero {
+    background: linear-gradient(135deg, #FAF7FF, #EDE9FE);
+    border: 1px solid #DDD6FE;
+    border-radius: 20px;
+    padding: 40px 25px;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.confirmation-success-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 18px;
+    background: #6D28D9;
+    color: white;
+    border-radius: 50%;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.confirmation-hero h1 {
+    color: #4C1D95;
+    font-size: 30px;
+    margin: 0 0 12px;
+}
+
+.confirmation-hero > p {
+    color: #64748B;
+    font-size: 15px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* TRACKING NUMBER */
+
+.confirmation-tracking {
+    max-width: 550px;
+    margin: 25px auto 0;
+    padding: 22px;
+    background: white;
+    border: 1px solid #C4B5FD;
+    border-radius: 14px;
+}
+
+    .confirmation-tracking span {
+        color: #64748B;
+        font-size: 14px;
+    }
+
+    .confirmation-tracking h2 {
+        color: #6D28D9;
+        font-size: 22px;
+        margin: 10px 0;
+        overflow-wrap: anywhere;
+        user-select: all;
+    }
+
+    .confirmation-tracking p {
+        color: #64748B;
+        font-size: 13px;
+        margin: 0;
+    }
+
+/* MAIN CONFIRMATION LAYOUT */
+
+.confirmation-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+    gap: 20px;
+    align-items: start;
+}
+
+.confirmation-details,
+.confirmation-summary {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-width: 0;
+}
+
+/* INFORMATION CARDS */
+
+.confirmation-card {
+    background: #FFFFFF;
+    border: 1px solid #DDD6FE;
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 5px 20px rgba(109, 40, 217, 0.04);
+}
+
+    .confirmation-card h2 {
+        color: #5B21B6;
+        font-size: 19px;
+        font-weight: 700;
+        margin: 0 0 20px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid #EDE9FE;
+    }
+
+/* INFORMATION ROWS */
+
+.confirmation-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 10px 0;
+}
+
+    .confirmation-row span {
+        color: #64748B;
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    .confirmation-row strong {
+        color: #1F2937;
+        font-size: 14px;
+        font-weight: 600;
+        text-align: right;
+        line-height: 1.5;
+        overflow-wrap: anywhere;
+        min-width: 0;
+    }
+
+        /* SELECTED SERVICES */
+
+        .confirmation-row strong span {
+            display: inline-block;
+            color: #5B21B6;
+            font-weight: 600;
+        }
+
+/* TOTAL PAYMENT */
+
+.confirmation-total {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 18px;
+    padding: 20px;
+    background: #EDE9FE;
+    border-radius: 12px;
+}
+
+    .confirmation-total span {
+        color: #4C1D95;
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    .confirmation-total strong {
+        color: #6D28D9;
+        font-size: 25px;
+        font-weight: 700;
+        white-space: nowrap;
+    }
+
+/* BOTTOM BUTTONS */
+
+.confirmation-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+    .confirmation-actions .btn-primary,
+    .confirmation-actions .btn-secondary {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 46px;
+        padding: 12px 24px;
+        border-radius: 9px;
+        text-decoration: none;
+        font-family: inherit;
+        font-size: 14px;
+        font-weight: 600;
+        transition: background 0.2s;
+    }
+
+    .confirmation-actions .btn-primary {
+        background: #6D28D9;
+        color: #FFFFFF;
+        border: 1px solid #6D28D9;
+    }
+
+        .confirmation-actions .btn-primary:hover {
+            background: #5B21B6;
+        }
+
+    .confirmation-actions .btn-secondary {
+        background: #FFFFFF;
+        color: #6D28D9;
+        border: 1px solid #6D28D9;
+    }
+
+        .confirmation-actions .btn-secondary:hover {
+            background: #F5F3FF;
+        }
+
+/* =========================================
+   CONFIRMATION RESPONSIVENESS
+   ========================================= */
+
+@media (max-width: 900px) {
+    .confirmation-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .confirmation-page {
+        width: calc(100% - 30px);
+        padding: 28px 0 40px;
+    }
+
+    .confirmation-hero {
+        padding: 30px 16px;
+    }
+
+        .confirmation-hero h1 {
+            font-size: 24px;
+        }
+
+    .confirmation-success-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 30px;
+    }
+
+    .confirmation-tracking {
+        padding: 18px 12px;
+    }
+
+        .confirmation-tracking h2 {
+            font-size: 17px;
+        }
+
+    .confirmation-card {
+        padding: 18px;
+    }
+
+        .confirmation-card h2 {
+            font-size: 17px;
+        }
+
+    .confirmation-row {
+        gap: 12px;
+    }
+
+        .confirmation-row span,
+        .confirmation-row strong {
+            font-size: 13px;
+        }
+
+    .confirmation-total {
+        padding: 15px;
+    }
+
+        .confirmation-total strong {
+            font-size: 20px;
+        }
+
+    .confirmation-actions {
+        flex-direction: column;
+    }
+
+        .confirmation-actions .btn-primary,
+        .confirmation-actions .btn-secondary {
+            width: 100%;
+        }
+}
+
+/* =========================================
+   CUSTOMER TRACK ORDER PAGE
+   ========================================= */
+
+.track-page {
+    width: min(1050px, calc(100% - 40px));
+    margin: 0 auto;
+    padding: 40px 0 60px;
+    color: #1F2937;
+}
+
+/* PAGE HEADING */
+
+.track-heading {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+    .track-heading h1 {
+        color: #4C1D95;
+        font-size: 32px;
+        font-weight: 700;
+        margin: 0 0 10px;
+    }
+
+    .track-heading p {
+        color: #64748B;
+        font-size: 15px;
+        line-height: 1.6;
+        margin: 0;
+    }
+
+/* TRACKING SEARCH CARD */
+
+.track-search-card {
+    max-width: 750px;
+    margin: 0 auto 30px;
+    padding: 28px;
+    background: #FFFFFF;
+    border: 1px solid #DDD6FE;
+    border-radius: 16px;
+    box-shadow: 0 5px 20px rgba(109, 40, 217, 0.05);
+}
+
+    .track-search-card h2 {
+        color: #5B21B6;
+        font-size: 20px;
+        margin: 0 0 20px;
+    }
+
+.track-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.track-page .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+    .track-page .form-field label {
+        color: #374151;
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    .track-page .form-field input {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 14px;
+        border: 1px solid #C4B5FD;
+        border-radius: 9px;
+        font-family: inherit;
+        font-size: 14px;
+        color: #1F2937;
+        outline: none;
+        transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+        .track-page .form-field input:focus {
+            border-color: #6D28D9;
+            box-shadow: 0 0 0 3px #EDE9FE;
+        }
+
+        .track-page .form-field input::placeholder {
+            color: #94A3B8;
+        }
+
+.track-page .field-validation {
+    color: #DC2626;
+    font-size: 13px;
+}
+
+.track-hint {
+    color: #64748B;
+    font-size: 13px;
+    margin: 18px 0 0;
+    line-height: 1.5;
+}
+
+/* TRACK ORDER BUTTON */
+
+.track-page .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 13px 24px;
+    min-height: 46px;
+    background: #6D28D9;
+    color: #FFFFFF;
+    border: 1px solid #6D28D9;
+    border-radius: 9px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+    .track-page .btn-primary:hover {
+        background: #5B21B6;
+    }
+
+/* ORDER RESULT */
+
+.track-result {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 20px;
+    align-items: start;
+    margin-top: 30px;
+}
+
+/* RESULT HEADER */
+
+.track-result-header {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding: 24px;
+    background: linear-gradient(135deg, #F5F3FF, #EDE9FE);
+    border: 1px solid #DDD6FE;
+    border-radius: 16px;
+}
+
+    .track-result-header h2 {
+        color: #4C1D95;
+        font-size: 22px;
+        margin: 0 0 8px;
+    }
+
+    .track-result-header p {
+        color: #6D28D9;
+        font-size: 14px;
+        font-weight: 600;
+        margin: 0;
+        overflow-wrap: anywhere;
+    }
+
+.track-status-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 9px 15px;
+    background: #FFFFFF;
+    border: 1px solid #C4B5FD;
+    border-radius: 30px;
+    color: #5B21B6;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+/* INFORMATION AND PROGRESS CARDS */
+
+.track-info-card,
+.track-progress-card {
+    background: #FFFFFF;
+    border: 1px solid #DDD6FE;
+    border-radius: 16px;
+    padding: 25px;
+    min-width: 0;
+    box-shadow: 0 5px 20px rgba(109, 40, 217, 0.04);
+}
+
+    .track-info-card h3,
+    .track-progress-card h3 {
+        color: #5B21B6;
+        font-size: 19px;
+        margin: 0 0 20px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid #EDE9FE;
+    }
+
+/* ORDER INFORMATION ROWS */
+
+.track-info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 12px 0;
+    border-bottom: 1px solid #F3F0FA;
+}
+
+    .track-info-row:last-child {
+        border-bottom: none;
+    }
+
+    .track-info-row span {
+        color: #64748B;
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    .track-info-row strong {
+        color: #1F2937;
+        font-size: 14px;
+        font-weight: 600;
+        text-align: right;
+        line-height: 1.5;
+        overflow-wrap: anywhere;
+        min-width: 0;
+    }
+
+/* =========================================
+   LAUNDRY PROGRESS TIMELINE
+   ========================================= */
+
+.track-progress-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.track-progress-step {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    min-height: 58px;
+}
+
+    /* Line connecting each progress circle */
+
+    .track-progress-step:not(:last-child)::before {
+        content: "";
+        position: absolute;
+        left: 17px;
+        top: 35px;
+        bottom: 0;
+        width: 2px;
+        background: #E5E7EB;
+    }
+
+    /* Completed connecting lines */
+
+    .track-progress-step.completed::before {
+        background: #8B5CF6;
+    }
+
+/* Progress circles */
+
+.track-step-circle {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: #F1F5F9;
+    border: 2px solid #CBD5E1;
+    color: #94A3B8;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.track-step-text {
+    padding-top: 8px;
+    font-size: 14px;
+    color: #94A3B8;
+    line-height: 1.5;
+}
+
+/* COMPLETED STATUS */
+
+.track-progress-step.completed .track-step-circle {
+    background: #6D28D9;
+    border-color: #6D28D9;
+    color: #FFFFFF;
+}
+
+.track-progress-step.completed .track-step-text {
+    color: #5B21B6;
+    font-weight: 600;
+}
+
+/* CURRENT STATUS */
+
+.track-progress-step.current .track-step-circle {
+    background: #EDE9FE;
+    border-color: #6D28D9;
+    color: #6D28D9;
+}
+
+.track-progress-step.current .track-step-text {
+    color: #4C1D95;
+    font-weight: 700;
+}
+
+/* VIEW ORDER DETAILS BUTTON */
+
+.track-actions {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+}
+
+    .track-actions .btn-primary {
+        min-width: 220px;
+    }
+
+/* BACK TO HOME */
+
+.track-back {
+    display: flex;
+    justify-content: center;
+    margin-top: 28px;
+}
+
+.track-page .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 45px;
+    padding: 12px 24px;
+    background: #FFFFFF;
+    color: #6D28D9;
+    border: 1px solid #6D28D9;
+    border-radius: 9px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+    .track-page .btn-secondary:hover {
+        background: #F5F3FF;
+    }
+
+/* =========================================
+   TRACK ORDER MOBILE RESPONSIVENESS
+   ========================================= */
+
+@media (max-width: 768px) {
+
+    .track-result {
+        grid-template-columns: 1fr;
+    }
+
+    .track-result-header,
+    .track-actions {
+        grid-column: 1;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .track-page {
+        width: calc(100% - 30px);
+        padding: 28px 0 40px;
+    }
+
+    .track-heading h1 {
+        font-size: 25px;
+    }
+
+    .track-search-card,
+    .track-info-card,
+    .track-progress-card {
+        padding: 18px;
+    }
+
+    .track-result-header {
+        padding: 18px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+        .track-result-header h2 {
+            font-size: 20px;
+        }
+
+    .track-info-row span,
+    .track-info-row strong {
+        font-size: 13px;
+    }
+
+    .track-actions .btn-primary,
+    .track-back .btn-secondary {
+        width: 100%;
+    }
+}

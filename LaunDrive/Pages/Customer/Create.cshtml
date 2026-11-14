@@ -1,4 +1,365 @@
 ﻿@page
 @model LaunDrive.Pages.Customer.CreateModel
+
 @{
+    ViewData["Title"] = "Place Order";
+}
+
+<div class="place-order-page">
+
+    <!-- PAGE HEADING -->
+    <div class="order-heading">
+        <h1>Place Your Laundry Order</h1>
+        <p>
+            Fill in the information below to schedule
+            your laundry service.
+        </p>
+    </div>
+
+    <form method="post" class="order-form" id="placeOrderForm">
+
+        <!-- VALIDATION -->
+        <div asp-validation-summary="All"
+             class="validation-summary">
+        </div>
+
+        <!-- 1. CUSTOMER INFORMATION -->
+        <section class="order-section">
+
+            <h2>1. Customer Information</h2>
+
+            <div class="order-two-columns">
+
+                <div class="form-field">
+                    <label asp-for="Input.CustomerName">
+                        Full Name
+                    </label>
+
+                    <input asp-for="Input.CustomerName"
+                           placeholder="Enter full name" />
+
+                    <span asp-validation-for="Input.CustomerName"
+                          class="field-validation"></span>
+                </div>
+
+                <div class="form-field">
+                    <label asp-for="Input.ContactNumber">
+                        Contact Number
+                    </label>
+
+                    <input asp-for="Input.ContactNumber"
+                           type="tel"
+                           placeholder="09XXXXXXXXX" />
+
+                    <span asp-validation-for="Input.ContactNumber"
+                          class="field-validation"></span>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- 2. LAUNDRY INFORMATION -->
+        <section class="order-section">
+
+            <h2>2. Laundry Information</h2>
+
+            <p class="section-description">
+                Select one or more services.
+            </p>
+
+            <div class="laundry-service-options">
+
+                <!-- WASH -->
+                <div class="laundry-option">
+
+                    <input asp-for="Input.Wash"
+                           id="washOption"
+                           class="laundry-option-input" />
+
+                    <label for="washOption"
+                           class="laundry-option-card">
+
+                        
+                        <span class="laundry-option-icon">
+                            <svg width="24" height="24" viewBox="0 0 48 48"
+                                 fill="none" stroke="currentColor" stroke-width="2.5"
+                                 stroke-linecap="round" stroke-linejoin="round"
+                                 aria-hidden="true">
+                                <rect x="7" y="5" width="34" height="38" rx="5" />
+                                <path d="M7 16H41" />
+                                <circle cx="14" cy="11" r="1" />
+                                <circle cx="21" cy="11" r="1" />
+                                <circle cx="24" cy="29" r="11" />
+                                <path d="M15 29Q20 24 24 29T33 29" />
+                            </svg>
+                        </span>
+
+
+                        <span class="laundry-option-text">
+                            <strong>Wash</strong>
+                            <small>Drying included</small>
+                        </span>
+
+                        <span class="laundry-option-circle"></span>
+                    </label>
+
+                </div>
+
+                <!-- IRON -->
+                <div class="laundry-option">
+
+                    <input asp-for="Input.Iron"
+                           id="ironOption"
+                           class="laundry-option-input" />
+
+                    <label for="ironOption"
+                           class="laundry-option-card">
+
+                        
+                        <span class="laundry-option-icon">
+                            <svg width="24" height="24" viewBox="0 0 48 48"
+                                 fill="none" stroke="currentColor" stroke-width="2.5"
+                                 stroke-linecap="round" stroke-linejoin="round"
+                                 aria-hidden="true">
+                                <path d="M8 34L16 18H32C37 18 40 22 40 27V34Z" />
+                                <path d="M8 34L5 39H43V34Z" />
+                                <path d="M17 18V13C17 10 19 8 22 8H31" />
+                                <path d="M31 8V18" />
+                                <path d="M16 29H31" />
+                            </svg>
+                        </span>
+
+
+                        <span class="laundry-option-text">
+                            <strong>Iron</strong>
+                            <small>Remove wrinkles</small>
+                        </span>
+
+                        <span class="laundry-option-circle"></span>
+                    </label>
+
+                </div>
+
+                <!-- FOLD -->
+                <div class="laundry-option">
+
+                    <input asp-for="Input.Fold"
+                           id="foldOption"
+                           class="laundry-option-input" />
+
+                    <label for="foldOption"
+                           class="laundry-option-card">
+
+                        
+                        <span class="laundry-option-icon">
+                            <svg width="24" height="24" viewBox="0 0 48 48"
+                                 fill="none" stroke="currentColor" stroke-width="2.5"
+                                 stroke-linecap="round" stroke-linejoin="round"
+                                 aria-hidden="true">
+                                <rect x="7" y="8" width="34" height="10" rx="4" />
+                                <rect x="7" y="19" width="34" height="10" rx="4" />
+                                <rect x="7" y="30" width="34" height="10" rx="4" />
+                                <path d="M15 8V18M33 19V29M15 30V40" />
+                            </svg>
+                        </span>
+
+
+                        <span class="laundry-option-text">
+                            <strong>Fold</strong>
+                            <small>Neatly fold clothes</small>
+                        </span>
+
+                        <span class="laundry-option-circle"></span>
+                    </label>
+
+                </div>
+
+            </div>
+
+            <p class="order-hint">
+                Drying is automatically included when Wash
+                is selected.
+            </p>
+
+            <div class="form-field">
+                <label asp-for="Input.NumberOfPieces">
+                    Laundry Quantity
+                </label>
+
+                <input asp-for="Input.NumberOfPieces"
+                       type="number"
+                       min="1"
+                       placeholder="Enter estimated laundry quantity" />
+
+                <span asp-validation-for="Input.NumberOfPieces"
+                      class="field-validation"></span>
+            </div>
+
+            <div class="form-field">
+                <label asp-for="Input.SpecialInstructions">
+                    Special Instructions (Optional)
+                </label>
+
+                <textarea asp-for="Input.SpecialInstructions"
+                          rows="3"
+                          placeholder="Enter any special laundry instructions"></textarea>
+            </div>
+
+        </section>
+
+        <!-- 3. PICKUP AND DELIVERY -->
+        <section class="order-section">
+
+            <h2>3. Pickup and Delivery Details</h2>
+
+            <div class="form-field">
+                <label asp-for="Input.PickupAddress">
+                    Pickup Address
+                </label>
+
+                <input asp-for="Input.PickupAddress"
+                       placeholder="Enter your pickup address" />
+
+                <span asp-validation-for="Input.PickupAddress"
+                      class="field-validation"></span>
+            </div>
+
+            <div class="form-field">
+                <label asp-for="Input.DeliveryAddress">
+                    Delivery Address
+                </label>
+
+                <input asp-for="Input.DeliveryAddress"
+                       placeholder="Enter your delivery address" />
+
+                <span asp-validation-for="Input.DeliveryAddress"
+                      class="field-validation"></span>
+            </div>
+
+        </section>
+
+        <!-- 4. SCHEDULE SELECTION -->
+        <section class="order-section">
+
+            <h2>4. Schedule Selection</h2>
+
+            <div class="form-field">
+
+                <label>Preferred Pickup</label>
+
+                <div class="order-two-columns">
+
+                    <input type="date"
+                           id="pickupDate"
+                           aria-label="Pickup date"
+                           required
+                           value="@(Model.Input.PickupSchedule?.ToString("yyyy-MM-dd"))" />
+
+                    <input type="time"
+                           id="pickupTime"
+                           aria-label="Pickup time"
+                           required
+                           value="@(Model.Input.PickupSchedule?.ToString("HH:mm"))" />
+
+                </div>
+
+                <input asp-for="Input.PickupSchedule"
+                       type="hidden"
+                       id="pickupScheduleValue"
+                       asp-format="{0:yyyy-MM-ddTHH:mm}" />
+
+                <span asp-validation-for="Input.PickupSchedule"
+                      class="field-validation"></span>
+
+            </div>
+
+            <div class="form-field">
+
+                <label>Preferred Delivery</label>
+
+                <div class="order-two-columns">
+
+                    <input type="date"
+                           id="deliveryDate"
+                           aria-label="Delivery date"
+                           required
+                           value="@(Model.Input.DeliverySchedule?.ToString("yyyy-MM-dd"))" />
+
+                    <input type="time"
+                           id="deliveryTime"
+                           aria-label="Delivery time"
+                           required
+                           value="@(Model.Input.DeliverySchedule?.ToString("HH:mm"))" />
+
+                </div>
+
+                <input asp-for="Input.DeliverySchedule"
+                       type="hidden"
+                       id="deliveryScheduleValue"
+                       asp-format="{0:yyyy-MM-ddTHH:mm}" />
+
+                <span asp-validation-for="Input.DeliverySchedule"
+                      class="field-validation"></span>
+
+            </div>
+
+        </section>
+
+        <!-- ACTION BUTTONS -->
+        <div class="form-actions">
+
+            <a asp-page="/Index" class="btn-secondary">
+                Back to Home
+            </a>
+
+            <button type="submit" class="btn-primary">
+                Submit Order
+            </button>
+
+        </div>
+
+    </form>
+
+</div>
+
+@section Scripts {
+    <script>
+        const orderForm =
+            document.getElementById("placeOrderForm");
+
+        function combineSchedule(dateId, timeId, hiddenId) {
+            const date = document.getElementById(dateId).value;
+            const time = document.getElementById(timeId).value;
+            const hidden = document.getElementById(hiddenId);
+
+            if (date && time) {
+                hidden.value = date + "T" + time;
+            } else {
+                hidden.value = "";
+            }
+        }
+
+        function updateSchedules() {
+            combineSchedule(
+                "pickupDate",
+                "pickupTime",
+                "pickupScheduleValue"
+            );
+
+            combineSchedule(
+                "deliveryDate",
+                "deliveryTime",
+                "deliveryScheduleValue"
+            );
+        }
+
+        orderForm.addEventListener("submit", updateSchedules);
+
+        ["pickupDate", "pickupTime",
+         "deliveryDate", "deliveryTime"].forEach(id => {
+            document.getElementById(id)
+                .addEventListener("change", updateSchedules);
+        });
+    </script>
 }

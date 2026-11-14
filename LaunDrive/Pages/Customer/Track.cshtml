@@ -1,4 +1,211 @@
 ﻿@page
 @model LaunDrive.Pages.Customer.TrackModel
+
 @{
+    ViewData["Title"] = "Track Order";
 }
+
+<div class="track-page">
+
+    <!-- PAGE HEADING -->
+    <div class="track-heading">
+        <h1>Track Your Laundry</h1>
+        <p>
+            Enter your tracking number to check the
+            current status of your laundry order.
+        </p>
+    </div>
+
+    <!-- TRACKING SEARCH -->
+    <section class="track-search-card">
+
+        <h2>Find Your Order</h2>
+
+        <form method="post" class="track-form">
+
+            <div class="form-field">
+
+                <label asp-for="TrackingNumber">
+                    Tracking Number
+                </label>
+
+                <input asp-for="TrackingNumber"
+                       placeholder="Enter your tracking number"
+                       autocomplete="off" />
+
+                <span asp-validation-for="TrackingNumber"
+                      class="field-validation">
+                </span>
+
+            </div>
+
+            <button type="submit" class="btn-primary">
+                Track Order
+            </button>
+
+        </form>
+
+        <p class="track-hint">
+            You can find your tracking number
+            on your Order Confirmation page.
+        </p>
+
+    </section>
+
+    <!-- DISPLAY ORDER IF FOUND -->
+    @if (Model.Order != null)
+    {
+        var order = Model.Order;
+
+        // Get the selected laundry services
+        var services = new List<string>();
+
+        if (order.Wash)
+        {
+            services.Add("Wash");
+        }
+
+        if (order.Iron)
+        {
+            services.Add("Iron");
+        }
+
+        if (order.Fold)
+        {
+            services.Add("Fold");
+        }
+
+        // Prepare the order status stages
+        var stages = new List<string>
+        {
+            "Pending",
+            "Picked Up"
+        };
+
+        // Only include washing and drying
+        // if the customer selected Wash
+        if (order.Wash)
+        {
+            stages.Add("Washing");
+            stages.Add("Drying");
+        }
+
+        stages.Add("Ready for Delivery");
+        stages.Add("Out for Delivery");
+        stages.Add("Completed");
+
+        int currentStage = stages.IndexOf(order.OrderStatus);
+
+        <!-- ORDER RESULT -->
+        <section class="track-result">
+
+            <div class="track-result-header">
+
+                <div>
+                    <h2>Order Found!</h2>
+                    <p>@order.TrackingNumber</p>
+                </div>
+
+                <span class="track-status-badge">
+                    @order.OrderStatus
+                </span>
+
+            </div>
+
+            <!-- ORDER INFORMATION -->
+            <div class="track-info-card">
+
+                <h3>Order Information</h3>
+
+                <div class="track-info-row">
+                    <span>Customer Name</span>
+                    <strong>@order.CustomerName</strong>
+                </div>
+
+                <div class="track-info-row">
+                    <span>Selected Services</span>
+                    <strong>@string.Join(" + ", services)</strong>
+                </div>
+
+                <div class="track-info-row">
+                    <span>Number of Pieces</span>
+                    <strong>@order.NumberOfPieces</strong>
+                </div>
+
+                <div class="track-info-row">
+                    <span>Total Payment</span>
+                    <strong>₱@order.TotalPrice.ToString("N2")</strong>
+                </div>
+
+                <div class="track-info-row">
+                    <span>Payment Status</span>
+                    <strong>@order.PaymentStatus</strong>
+                </div>
+
+            </div>
+
+            <!-- ORDER PROGRESS -->
+            <div class="track-progress-card">
+
+                <h3>Laundry Progress</h3>
+
+                <ol class="track-progress-list">
+
+                    @for (int i = 0; i < stages.Count; i++)
+                    {
+                        var stageClass = i < currentStage
+                            ? "completed"
+                            : i == currentStage
+                                ? "current"
+                                : "upcoming";
+
+                        <li class="track-progress-step @stageClass">
+
+                            <span class="track-step-circle">
+                                @if (i < currentStage)
+                                {
+                                    <span>✓</span>
+                                }
+                                else
+                                {
+                                    <span>@(i + 1)</span>
+                                }
+                            </span>
+
+                            <span class="track-step-text">
+                                @stages[i]
+                            </span>
+
+                        </li>
+                    }
+
+                </ol>
+
+            </div>
+
+            <!-- VIEW ORDER DETAILS -->
+            <div class="track-actions">
+
+                <a asp-page="/Customer/Confirmation"
+                   asp-route-id="@order.LaundryOrderId"
+                   class="btn-primary">
+
+                    View Order Details
+
+                </a>
+
+            </div>
+
+        </section>
+    }
+
+    <!-- BACK TO HOME -->
+    <div class="track-back">
+
+        <a asp-page="/Index" class="btn-secondary">
+            Back to Home
+        </a>
+
+    </div>
+
+</div>
